@@ -95,7 +95,7 @@ print("Circle circum: ", circum_of_circle)
 
 circle_radius = float(input("What is the radius of your circle?"))
 
-area_of_circle = 3.14 * (circle_radius ** 2)
+area_of_circle = 3.14 * circle_radius ** 2
 circum_of_circle = 2 * 3.14 * circle_radius
 
 print("Circle are: ", area_of_circle)

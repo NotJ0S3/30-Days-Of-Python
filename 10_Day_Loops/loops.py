@@ -140,5 +140,22 @@ while count < len(fruits):
 from data.countries_data import countries_data
 
 # What are the total number of languages in the data
+
+total_languages = set()
+
+for dct in countries_data:
+    total_languages.update(dct.get("languages"))
+    
+print(f'The total number of langaues in the data is: {len(total_languages)}')
+
 # Find the ten most spoken languages from the data
+
+all_languages = []
+
+for dct in countries_data:
+    all_languages.extend(dct.get("languages"))  
+
+print(all_languages)
+
+
 # Find the 10 most populated countries in the world

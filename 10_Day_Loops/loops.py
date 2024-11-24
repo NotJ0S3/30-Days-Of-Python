@@ -141,21 +141,39 @@ from data.countries_data import countries_data
 
 # What are the total number of languages in the data
 
-total_languages = set()
+total_languages = []
 
 for dct in countries_data:
-    total_languages.update(dct.get("languages"))
+    total_languages.extend(dct.get("languages"))
     
-print(f'The total number of langaues in the data is: {len(total_languages)}')
+print(f'The total number of languages in the data is: {len(set(total_languages))}')
 
 # Find the ten most spoken languages from the data
 
-all_languages = []
+value_spoken_language = {}
 
-for dct in countries_data:
-    all_languages.extend(dct.get("languages"))  
+for language in total_languages:
+    value_spoken_language[language] = total_languages.count(language)
 
-print(all_languages)
+sorted_values = sorted(value_spoken_language.items(), key=lambda x: x[1], reverse=True)
 
+print(sorted_values[0:11])
 
 # Find the 10 most populated countries in the world
+
+new_keys = []
+new_values = []
+final_dct = {}
+position = 0
+
+for dct in countries_data:
+    new_keys.append(dct.get("name"))
+    new_values.append(dct.get("population"))
+
+for name in new_keys:
+    final_dct[name] = new_values[position]
+    position += 1
+    
+sorted_dct = sorted(final_dct.items(), key=lambda x: x[1], reverse=True)
+
+print(sorted_dct[0:11])

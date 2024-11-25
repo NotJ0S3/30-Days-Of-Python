@@ -257,24 +257,43 @@ def calculate_mode(list_nums = list):
         values_dct.append(list_nums.count(num))
         final_dct[num] = values_dct[position]
         position += 1
+        
+    reversed_dict = {value: key for key, value in final_dct.items()}
     
-    return final_dct.get(24)
+    target_value = max(values_dct)
+    key = reversed_dict.get(target_value)
+    
+    return key
 
 
 def calculate_range(list_nums = list):
-    pass
+    return max(list_nums) - min(list_nums)
 
 def calculate_variance(list_nums = list):
-    pass
+    list1 = []
+    sum_list1 = 0
+    
+    for num in list_nums:
+        list1.append((num - calculate_mean(list_nums)) ** 2)
+        
+    for num in list1:
+        sum_list1 = sum_list1 + num
+        
+    total = sum_list1 / len(list_nums)
+        
+    return total
 
 def calculate_std(list_nums = list):
-    pass
+    return math.sqrt(calculate_variance(list_nums))
 
 list_numbers = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]
 
 print(calculate_mean(list_numbers))
 print(calculate_median(list_numbers))
 print(calculate_mode(list_numbers))
+print(calculate_range(list_numbers))
+print(calculate_variance(list_numbers))
+print(calculate_std(list_numbers))
 
 
 # Exercises: Level 3

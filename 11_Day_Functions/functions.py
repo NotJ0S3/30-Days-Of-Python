@@ -298,9 +298,113 @@ print(calculate_std(list_numbers))
 
 # Exercises: Level 3
 # Write a function called is_prime, which checks if a number is prime.
+
+def is_prime(number):
+    if number <= 1:
+        return False
+    
+    for index in range(2, number):
+        if number % index == 0:
+            return False
+        
+    return True
+
+print(is_prime(29))
+print(is_prime(12))
+
 # Write a functions which checks if all items are unique in the list.
+
+def is_unique(list):
+    is_unique = []
+    
+    for item in list:
+        if list.count(item) > 1:
+            is_unique.append(False)
+        else:
+            is_unique.append(True)
+    
+    return f'All the items in the list are unique: {all(is_unique)}'
+        
+print(is_unique([1, 2, 3, 3, 4, 4, 5, 6]))
+print(is_unique([1, 2, 3, 4, 5, 6]))
+
 # Write a function which checks if all the items of the list are of the same data type.
+
+def same_type(list):
+    is_same_type = []
+    
+    for item in range(0, len(list) - 1):
+        if type(list[item]) == type(list[item + 1]):
+            is_same_type.append(True)
+        else:
+            is_same_type.append(False)
+    
+    return all(is_same_type)
+        
+print(same_type([1, 2, 3, 4]))
+print(same_type([1, 2, 3, "Hi"]))
+
 # Write a function which check if provided variable is a valid python variable
+
+def check_name_variable(var):
+    list_of_reserve_words = ["False", "await", "else", "import", "pass", "None", "break", "except", "in", "raise", "True", "class", "finally", "is", "return", "and", "continue", "for", "lambda", "try", "as", "def", "from", "nonlocal", "while", "assert", "del" , "global", "not", "with", "async", "elif", "if", "or", "yield"]
+    list_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
+
+    if var is list_of_reserve_words or type(var[0]) is list_numbers:
+        return f'The variable {var} can not be a variable name'
+    else:
+        return f'The variable {var} can be a variable name'
+    
+print(check_name_variable("0variable"))
+    
 # Go to the data folder and access the countries-data.py file.
 # Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
 # Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order.
+
+from data.countries_data import countries_data
+
+# What are the total number of languages in the data
+
+def total_languages(countries_data):
+    total_languages = []
+
+    for dct in countries_data:
+        total_languages.extend(dct.get("languages"))
+
+# Find the ten most spoken languages from the data
+
+def most_spoken_languages(countries_data):
+    value_spoken_language = {}
+    total_languages = total_languages(countries_data)
+
+    for language in total_languages:
+        value_spoken_language[language] = total_languages.count(language)
+
+    sorted_values = sorted(value_spoken_language.items(), key=lambda x: x[1], reverse=True)
+    
+    return sorted_values[0:11] 
+
+print(most_spoken_languages(countries_data))
+
+# Find the 10 most populated countries in the world
+
+def most_populated_countries(countries_data):
+    new_keys = []
+    new_values = []
+    final_dct = {}
+    position = 0
+    
+    for dct in countries_data:
+        new_keys.append(dct.get("name"))
+        new_values.append(dct.get("population"))
+    
+    for name in new_keys:
+        final_dct[name] = new_values[position]
+        position += 1
+        
+    sorted_dct = sorted(final_dct.items(), key=lambda x: x[1], reverse=True)
+    return sorted_dct
+
+print(most_populated_countries(countries_data))
+
+# print(sorted_dct[0:11])

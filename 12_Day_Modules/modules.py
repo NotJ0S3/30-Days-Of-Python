@@ -51,10 +51,7 @@ user_id_gen_by_user()
 # # rgb(125,244,255) - the output should be in this form
 
 def rgb_color_gen():
-    numbers = []
-
-    for number in range(0, 256):
-        numbers.append(number)
+    numbers = list(range(256))
 
     num1 = random.randint(0, len(numbers))
     num2 = random.randint(0, len(numbers))

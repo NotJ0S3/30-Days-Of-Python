@@ -346,15 +346,11 @@ print(same_type([1, 2, 3, "Hi"]))
 
 # Write a function which check if provided variable is a valid python variable
 
-def check_name_variable(var):
-    list_of_reserve_words = ["False", "await", "else", "import", "pass", "None", "break", "except", "in", "raise", "True", "class", "finally", "is", "return", "and", "continue", "for", "lambda", "try", "as", "def", "from", "nonlocal", "while", "assert", "del" , "global", "not", "with", "async", "elif", "if", "or", "yield"]
-    list_numbers = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
-
-    if var is list_of_reserve_words or type(var[0]) is list_numbers:
-        return f'The variable {var} can not be a variable name'
-    else:
-        return f'The variable {var} can be a variable name'
+def check_name_variable(var = str):
+    return var.isidentifier()
     
+    
+print(check_name_variable("variable"))
 print(check_name_variable("0variable"))
     
 # Go to the data folder and access the countries-data.py file.

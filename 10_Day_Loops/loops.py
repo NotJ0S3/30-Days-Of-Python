@@ -118,7 +118,7 @@ for number in range(0, 101):
 # Exercises: Level 3
 # Go to the data folder and use the countries.py file. Loop through the countries and extract all the countries containing the word land.
 
-from data.countries import countries
+from countries import countries
 
 for country in countries:
     if "land" in country:
@@ -137,7 +137,7 @@ while count < len(fruits):
     
 # Go to the data folder and use the countries_data.py file.
 
-from data.countries_data import countries_data
+from countries_data import countries_data
 
 # What are the total number of languages in the data
 

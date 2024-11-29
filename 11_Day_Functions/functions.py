@@ -357,28 +357,29 @@ print(check_name_variable("0variable"))
 # Create a function called the most_spoken_languages in the world. It should return 10 or 20 most spoken languages in the world in descending order
 # Create a function called the most_populated_countries. It should return 10 or 20 most populated countries in descending order.
 
-from data.countries_data import countries_data
+from countries_data import countries_data
 
 # What are the total number of languages in the data
 
-def total_languages(countries_data):
+def languages(countries_data):
     total_languages = []
 
     for dct in countries_data:
         total_languages.extend(dct.get("languages"))
+    return total_languages
 
 # Find the ten most spoken languages from the data
 
 def most_spoken_languages(countries_data):
     value_spoken_language = {}
-    total_languages = total_languages(countries_data)
+    total_languages = languages(countries_data)
 
     for language in total_languages:
         value_spoken_language[language] = total_languages.count(language)
 
     sorted_values = sorted(value_spoken_language.items(), key=lambda x: x[1], reverse=True)
     
-    return sorted_values[0:11] 
+    return sorted_values[0:10] 
 
 print(most_spoken_languages(countries_data))
 
@@ -399,8 +400,6 @@ def most_populated_countries(countries_data):
         position += 1
         
     sorted_dct = sorted(final_dct.items(), key=lambda x: x[1], reverse=True)
-    return sorted_dct
+    return sorted_dct[0:10]
 
 print(most_populated_countries(countries_data))
-
-# print(sorted_dct[0:11])

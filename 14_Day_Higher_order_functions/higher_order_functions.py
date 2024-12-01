@@ -1,13 +1,32 @@
-# countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
-# names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
-# numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+countries = ['Estonia', 'Finland', 'Sweden', 'Denmark', 'Norway', 'Iceland']
+names = ['Asabeneh', 'Lidiya', 'Ermias', 'Abraham']
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
 # Exercises: Level 1
 # Explain the difference between map, filter, and reduce.
+# With map we can iterate over a list, set or tuple like we did with the "for" loop. With filter we can find especific
+# data that we want to find in a list of data. And reduce is use to, for example, find the total of a list of numbers
+
+
 # Explain the difference between higher order function, closure and decorator
+# Higher order functions can accept other functions and return a function, closure is when you have a function inside another 
+# function and it helps when you want to work whit modules and you don't want to export everythin. And decorator is
+# for extend the behavior of another function
+
 # Define a call function before map, filter or reduce, see examples.
 # Use for loop to print each country in the countries list.
 # Use for to print each name in the names list.
 # Use for to print each number in the numbers list.
+
+def printing_data(data):
+    for i in data:
+        print(i)
+
+printing_data(countries)
+printing_data(names)
+printing_data(numbers)   
+
 # Exercises: Level 2
 # Use map to create a new list by changing each country to uppercase in the countries list
 # Use map to create a new list by changing each number to its square in the numbers list
@@ -24,6 +43,8 @@
 # Create a function returning a dictionary, where keys stand for starting letters of countries and values are the number of country names starting with that letter.
 # Declare a get_first_ten_countries function - it returns a list of first ten countries from the countries.js list in the data folder.
 # Declare a get_last_ten_countries function that returns the last ten countries in the countries list.
+
+
 # Exercises: Level 3
 # Use the countries_data.py (https://github.com/Asabeneh/30-Days-Of-Python/blob/master/data/countries-data.py) file and follow the tasks below:
 # Sort countries by name, by capital, by population
